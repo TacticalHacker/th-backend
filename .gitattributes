@@ -1,2 +1,2 @@
-/mvnw text eol=lf
+/mvnw text eol=lf diff=unified merge=union chmod=+x
 *.cmd text eol=crlf
