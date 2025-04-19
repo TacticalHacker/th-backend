@@ -63,21 +63,16 @@ Create an `.env` file or set the following variables in `application.properties`
 
 ---
 
-## 📃 Functional Requirements
+## Architecture Diagram
 
-All detailed requirements are available in [FunctionalRequirement.md](./FunctionalRequirement.md)
+![th-scribes-backend drawio](https://github.com/user-attachments/assets/808c86ca-cc39-431a-8a2e-8c3822cb0a4a)
+
 
 ---
 
-## 📌 API Summary
+## 📃 Functional Requirements
 
-| Endpoint                 | Method | Description                                 |
-|--------------------------|--------|---------------------------------------------|
-| `/api/auth/login`         | POST   | Authenticate user and return JWT           |
-| `/api/admin/invite`       | POST   | Send onboarding email to client            |
-| `/api/admin/contracts`    | POST   | Generate and assign a contract             |
-| `/api/client/contracts`   | GET    | View assigned contracts                    |
-| `/api/client/sign`        | POST   | Digitally sign a contract                  |
+All detailed requirements are available in [FunctionalRequirement.md](./FunctionalRequirement.md)
 
 ---
 
