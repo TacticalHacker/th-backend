@@ -1,4 +1,4 @@
-package com.tacticalhacker.th_scribes_backend.service;
+package com.tacticalhacker.th.backend.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

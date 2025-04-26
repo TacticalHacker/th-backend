@@ -1,7 +1,7 @@
-package com.tacticalhacker.th_scribes_backend.util;
+package com.tacticalhacker.th.backend.util;
 
-import com.tacticalhacker.th_scribes_backend.service.JwtService;
-import com.tacticalhacker.th_scribes_backend.service.UserDetailsServiceImpl;
+import com.tacticalhacker.th.backend.service.JwtService;
+import com.tacticalhacker.th.backend.service.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

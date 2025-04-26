@@ -1,6 +1,6 @@
-package com.tacticalhacker.th_scribes_backend.repository;
+package com.tacticalhacker.th.backend.repository;
 
-import com.tacticalhacker.th_scribes_backend.model.Role;
+import com.tacticalhacker.th.backend.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

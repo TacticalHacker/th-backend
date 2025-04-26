@@ -1,13 +1,13 @@
-package com.tacticalhacker.th_scribes_backend;
+package com.tacticalhacker.th.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ThScribesBackendApplication {
+public class ThBackendApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ThScribesBackendApplication.class, args);
+        SpringApplication.run(ThBackendApplication.class, args);
     }
 
 }

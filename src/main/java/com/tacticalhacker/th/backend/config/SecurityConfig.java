@@ -1,7 +1,7 @@
-package com.tacticalhacker.th_scribes_backend.config;
+package com.tacticalhacker.th.backend.config;
 
-import com.tacticalhacker.th_scribes_backend.service.UserDetailsServiceImpl;
-import com.tacticalhacker.th_scribes_backend.util.JwtAuthenticationFilter;
+import com.tacticalhacker.th.backend.service.UserDetailsServiceImpl;
+import com.tacticalhacker.th.backend.util.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

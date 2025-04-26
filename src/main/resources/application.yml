@@ -1,6 +1,6 @@
 spring:
   application:
-    name: th-scribes-backend
+    name: th-backend
   datasource:
     url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?sslmode=require
     username: ${POSTGRES_USER}
