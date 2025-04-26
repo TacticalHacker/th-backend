@@ -35,11 +35,14 @@ public class AuthService {
     public AuthResponse register(RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
             log.info("User with email {} already exists", request.getEmail());
-            throw new RuntimeException("User already exists");
+            return new AuthResponse(null, "ERR_USER_EXISTS");
         }
 
-        Role role = roleRepository.findByName(request.getRole().toUpperCase())
-                .orElseThrow(() -> new RuntimeException("Role not found"));
+        Role role = roleRepository.findByName(request.getRole().toUpperCase()).orElse(null);
+        if (role == null) {
+            log.info("Role {} not found", request.getRole());
+            return new AuthResponse(null, "ERR_ROLE_NOT_FOUND");
+        }
 
         User user = new User();
         user.setFullName(request.getFullName());
@@ -54,29 +57,37 @@ public class AuthService {
                 new org.springframework.security.core.userdetails.User(
                         user.getEmail(), user.getPassword(),
                         List.of(new SimpleGrantedAuthority("ROLE_" + role.getName()))
-                )
+                ), user.getFullName()
         );
 
         log.info("User {} registered successfully", user.getEmail());
-        return new AuthResponse(token);
+        return new AuthResponse(token, null);
     }
 
-    public AuthResponse login(LoginRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
-        );
+public AuthResponse login(LoginRequest request) {
+        User user = userRepository.findByEmail(request.getEmail()).orElse(null);
+        if (user == null) {
+                log.info("User with email {} not found", request.getEmail());
+                return new AuthResponse(null, "ERR_USER_NOT_FOUND");
+        }
 
-        User user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        try {
+                authenticationManager.authenticate(
+                                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
+                );
+        } catch (Exception e) {
+                log.info("Invalid password for user {}", request.getEmail());
+                return new AuthResponse(null, "ERR_INVALID_PASSWORD");
+        }
 
         String token = jwtService.generateToken(
-                new org.springframework.security.core.userdetails.User(
-                        user.getEmail(), user.getPassword(),
-                        List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().getName()))
-                )
+                        new org.springframework.security.core.userdetails.User(
+                                        user.getEmail(), user.getPassword(),
+                                        List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().getName()))
+                        ), user.getFullName()
         );
         log.info("User {} logged in successfully", user.getEmail());
-        return new AuthResponse(token);
-    }
+        return new AuthResponse(token, null);
+}
 }
 

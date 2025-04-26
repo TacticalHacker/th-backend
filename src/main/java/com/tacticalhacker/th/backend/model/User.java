@@ -2,6 +2,7 @@ package com.tacticalhacker.th.backend.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.UUID;
 
@@ -19,6 +20,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @ToString.Exclude
     @Column(nullable = false)
     private String password;
 

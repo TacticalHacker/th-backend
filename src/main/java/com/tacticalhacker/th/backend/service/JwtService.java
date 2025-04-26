@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
 
 @Log4j2
 @Service
@@ -19,11 +20,12 @@ public class JwtService {
     @Value("${jwt.secret}")
     private String jwtSecret;
 
-    public String generateToken(UserDetails userDetails) {
-        log.info("Generating token for user: {}", userDetails.getUsername());
+    public String generateToken(UserDetails userDetails, String fullName) {
+        log.info("Generating token for user: {}, fullName: {}", userDetails.getUsername(), fullName);
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
                 .claim("authorities", userDetails.getAuthorities())
+                .claim("fullName", fullName)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day
                 .signWith(SignatureAlgorithm.HS256, getSignInKey())
