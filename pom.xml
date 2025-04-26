@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.tacticalhacker</groupId>
-	<artifactId>th-scribes-backend</artifactId>
-	<version>2025.4.2-SNAPSHOT</version>
-	<name>th-scribes-backend</name>
-	<description>BackEnd Repository for TH-Scribes Official Website</description>
+	<artifactId>th-backend</artifactId>
+	<version>2025.4.3-SNAPSHOT</version>
+	<name>th-backend</name>
+	<description>BackEnd Repository for Tactical Hacker Official Website</description>
 	<url/>
 	<licenses>
 		<license/>

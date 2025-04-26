@@ -1,4 +1,4 @@
-package com.tacticalhacker.th_scribes_backend.model;
+package com.tacticalhacker.th.backend.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

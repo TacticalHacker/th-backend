@@ -1,4 +1,4 @@
-package com.tacticalhacker.th_scribes_backend.dto;
+package com.tacticalhacker.th.backend.dto;
 
 import lombok.Data;
 

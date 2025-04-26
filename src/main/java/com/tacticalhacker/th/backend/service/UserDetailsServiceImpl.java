@@ -1,7 +1,7 @@
-package com.tacticalhacker.th_scribes_backend.service;
+package com.tacticalhacker.th.backend.service;
 
-import com.tacticalhacker.th_scribes_backend.model.User;
-import com.tacticalhacker.th_scribes_backend.repository.UserRepository;
+import com.tacticalhacker.th.backend.model.User;
+import com.tacticalhacker.th.backend.repository.UserRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

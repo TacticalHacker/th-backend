@@ -1,6 +1,6 @@
-# TH-Scribes Backend
+# TH Backend
 
-This is the backend service for **TH-Scribes**, a client onboarding and digital contract management platform built for writers under the Tactical Hacker organization.
+This is the backend service for **Tactical Hacker**, a comment backend service for all sub-orgs under the Tactical Hacker organization.
 
 ---
 
@@ -31,8 +31,8 @@ The backend is built using **Spring Boot** and exposes RESTful APIs for:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/TacticalHacker/th-scribes-backend.git
-cd th-scribes-backend
+git clone https://github.com/TacticalHacker/th-backend.git
+cd th-backend
 ```
 
 ### 2. Configure Environment
@@ -65,14 +65,7 @@ Create an `.env` file or set the following variables in `application.properties`
 
 ## Architecture Diagram
 
-![th-scribes-backend drawio](https://github.com/user-attachments/assets/808c86ca-cc39-431a-8a2e-8c3822cb0a4a)
-
-
----
-
-## 📃 Functional Requirements
-
-All detailed requirements are available in [FunctionalRequirement.md](./FunctionalRequirement.md)
+![th-backend drawio](https://github.com/user-attachments/assets/808c86ca-cc39-431a-8a2e-8c3822cb0a4a)
 
 ---
 

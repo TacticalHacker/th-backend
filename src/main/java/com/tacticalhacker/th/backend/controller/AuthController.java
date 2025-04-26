@@ -1,9 +1,9 @@
-package com.tacticalhacker.th_scribes_backend.controller;
+package com.tacticalhacker.th.backend.controller;
 
-import com.tacticalhacker.th_scribes_backend.dto.AuthResponse;
-import com.tacticalhacker.th_scribes_backend.dto.LoginRequest;
-import com.tacticalhacker.th_scribes_backend.dto.RegisterRequest;
-import com.tacticalhacker.th_scribes_backend.service.AuthService;
+import com.tacticalhacker.th.backend.dto.AuthResponse;
+import com.tacticalhacker.th.backend.dto.LoginRequest;
+import com.tacticalhacker.th.backend.dto.RegisterRequest;
+import com.tacticalhacker.th.backend.service.AuthService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
