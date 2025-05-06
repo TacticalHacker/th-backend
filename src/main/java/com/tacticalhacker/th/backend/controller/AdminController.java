@@ -16,13 +16,13 @@ import java.util.stream.Collectors;
 
 @Log4j2
 @RestController
+@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/api/admin")
 public class AdminController {
 
     @Autowired
     private UserRepository userRepository;
 
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/getAllUsers")
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         List<User> users = userRepository.findAll();
