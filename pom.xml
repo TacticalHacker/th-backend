@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.tacticalhacker</groupId>
 	<artifactId>th-backend</artifactId>
-	<version>2025.4.3-SNAPSHOT</version>
+	<version>2025.5.0-SNAPSHOT</version>
 	<name>th-backend</name>
 	<description>BackEnd Repository for Tactical Hacker Official Website</description>
 	<url/>
