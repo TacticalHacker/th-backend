@@ -76,7 +76,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173","https://th-backend-kko4.onrender.com")
+                        .allowedOrigins("http://localhost:5173","https://tacticalhacker.github.io/tactical-hacker/")
                         .allowedMethods("*") // Allows all standard methods
                         .allowedHeaders("*") // Allows all headers
                         .allowCredentials(true);
