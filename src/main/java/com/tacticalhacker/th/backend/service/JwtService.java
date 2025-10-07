@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
-import java.util.HashMap;
 
 @Log4j2
 @Service
@@ -20,6 +19,8 @@ public class JwtService {
     @Value("${jwt.secret}")
     private String jwtSecret;
 
+    private static final long EXPIRATION_MS = 86400000; // 1 day
+
     public String generateToken(UserDetails userDetails, String fullName) {
         log.info("Generating token for user: {}, fullName: {}", userDetails.getUsername(), fullName);
         return Jwts.builder()
@@ -27,14 +28,16 @@ public class JwtService {
                 .claim("authorities", userDetails.getAuthorities())
                 .claim("fullName", fullName)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day
-                .signWith(SignatureAlgorithm.HS256, getSignInKey())
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_MS))
+                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
     public String extractUsername(String token) {
-        log.info("Extracting username from token: {}", token);
-        return Jwts.parser().setSigningKey(jwtSecret)
+        log.info("Extracting username from token");
+        return Jwts.parserBuilder()
+                .setSigningKey(getSignInKey())
+                .build()
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
@@ -42,12 +45,15 @@ public class JwtService {
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
         log.info("Validating token for user: {}", userDetails.getUsername());
-        return extractUsername(token).equals(userDetails.getUsername()) && !isTokenExpired(token);
+        String username = extractUsername(token);
+        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
     private boolean isTokenExpired(String token) {
-        log.info("Checking if token is expired: {}", token);
-        Date expiration = Jwts.parser().setSigningKey(jwtSecret)
+        log.info("Checking if token is expired");
+        Date expiration = Jwts.parserBuilder()
+                .setSigningKey(getSignInKey())
+                .build()
                 .parseClaimsJws(token)
                 .getBody()
                 .getExpiration();
